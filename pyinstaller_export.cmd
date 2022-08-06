@@ -1,0 +1,1 @@
+pyinstaller -F --add-data "homeplus.mp3;homeplus.ico" main.py
