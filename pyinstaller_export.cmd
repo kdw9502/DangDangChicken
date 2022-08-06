@@ -1,1 +1,1 @@
-pyinstaller -F --add-data "homeplus.mp3;homeplus.ico" main.py
+pyinstaller -w -F --icon=homeplus.ico -n DangDangChicken.exe main.py

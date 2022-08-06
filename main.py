@@ -5,11 +5,12 @@ import requests
 from playsound import playsound
 import threading
 
+
 def main():
     noticed = False
     retry_count = 0
     while True:
-        response = requests.get("https://front.homeplus.co.kr/item/getItemDetail.json?itemNo=069150196&storeType=HYPER")
+        response = requests.get("https://front.homeplus.co.kr/item/getItemDetail.json?itemNo=069150196&storeType=HYPER", verify=False)
         json = response.json()
         is_remain = False
         try:
@@ -29,8 +30,8 @@ def main():
 
 
 if __name__ == '__main__':
-    thread = threading.Thread(target=main, daemon=True).start()
-    image = Image.open("homplus.ico")
+    image = Image.open("homeplus.ico")
     menu = Menu(MenuItem('종료', lambda: icon.stop()))
     icon = Icon("당당치킨", image, menu=menu)
+    thread = threading.Thread(target=main, daemon=True).start()
     icon.run()
