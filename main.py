@@ -4,7 +4,7 @@ from pystray import Menu, MenuItem, Icon
 import requests
 from playsound import playsound
 import threading
-
+import ctypes
 
 def main():
     noticed = False
@@ -23,7 +23,11 @@ def main():
         if is_remain:
             if not noticed:
                 noticed = True
-                playsound("homeplus.mp3")
+                try:
+                    playsound("homeplus.mp3")
+                except:
+                    ctypes.windll.user32.MessageBoxW(0, "당당 치킨이 재입고되었습니다.", "당당치킨", 0)
+
         else:
             noticed = False
         time.sleep(20)
