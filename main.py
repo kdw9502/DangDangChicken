@@ -24,7 +24,7 @@ class Crawler:
                 self.notice("http://item.gmarket.co.kr/Item?goodscode=2493520744")
             else:
                 self.noticed = False
-            time.sleep(10)
+            time.sleep(20)
 
     def notice(self, url):
         if not self.noticed:
