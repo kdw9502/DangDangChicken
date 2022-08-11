@@ -2,7 +2,7 @@
 
 [다운로드](https://github.com/kdw9502/DangDangChicken/releases/download/1.1.0/DangDangChicken.zip)
 
-프로그램 실행 후 홈플러스 홈페이지, 옥션, 지마켓에서 당당치킨 품절이 풀리면 홈플러스 BGM이 재생됩니다.
+프로그램 실행 후 홈플러스 홈페이지, 옥션, 지마켓에서 당당치킨 품절이 풀리면 홈페이지를  홈플러스 BGM이 재생됩니다.
 
 10초 간격으로 품절여부를 확인합니다.
 
