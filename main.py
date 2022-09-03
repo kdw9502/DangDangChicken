@@ -17,11 +17,17 @@ class Crawler:
     def run(self):
         while True:
             if self.crawl_homeplus():
-                self.notice("https://front.homeplus.co.kr/item?itemNo=069150196&storeType=HYPER")
+                time.sleep(1)
+                if self.crawl_homeplus():
+                    self.notice("https://front.homeplus.co.kr/item?itemNo=069150196&storeType=HYPER")
             elif self.crawl_auction():
-                self.notice("http://itempage3.auction.co.kr/DetailView.aspx?itemno=C652681498")
+                time.sleep(1)
+                if self.crawl_auction():
+                    self.notice("http://itempage3.auction.co.kr/DetailView.aspx?itemno=C652681498")
             elif self.crawl_gmarket():
-                self.notice("http://item.gmarket.co.kr/Item?goodscode=2493520744")
+                time.sleep(1)
+                if self.crawl_gmarket():
+                    self.notice("http://item.gmarket.co.kr/Item?goodscode=2493520744")
             else:
                 self.noticed = False
             time.sleep(20)
@@ -53,9 +59,9 @@ class Crawler:
         for _ in range(max_try):
             response = requests.get("http://itempage3.auction.co.kr/DetailView.aspx?itemno=C652681498", verify=False)
             text = response.text
-            try:
+            if response.ok:
                 return "현재 구매가 불가능한 상품입니다." not in text and "품절" not in text
-            except KeyError:
+            else:
                 time.sleep(1)
         return False
 
@@ -64,9 +70,9 @@ class Crawler:
         for _ in range(max_try):
             response = requests.get("http://item.gmarket.co.kr/Item?goodscode=2493520744", verify=False)
             text = response.text
-            try:
+            if response.ok:
                 return "일시품절" not in text and "품절" not in text
-            except KeyError:
+            else:
                 time.sleep(1)
         return False
 
