@@ -20,14 +20,14 @@ class Crawler:
                 time.sleep(1)
                 if self.crawl_homeplus():
                     self.notice("https://front.homeplus.co.kr/item?itemNo=069150196&storeType=HYPER")
-            elif self.crawl_auction():
-                time.sleep(1)
-                if self.crawl_auction():
-                    self.notice("http://itempage3.auction.co.kr/DetailView.aspx?itemno=C652681498")
-            elif self.crawl_gmarket():
-                time.sleep(1)
-                if self.crawl_gmarket():
-                    self.notice("http://item.gmarket.co.kr/Item?goodscode=2493520744")
+            # elif self.crawl_auction():
+            #     time.sleep(1)
+            #     if self.crawl_auction():
+            #         self.notice("http://itempage3.auction.co.kr/DetailView.aspx?itemno=C652681498")
+            # elif self.crawl_gmarket():
+            #     time.sleep(1)
+            #     if self.crawl_gmarket():
+            #         self.notice("http://item.gmarket.co.kr/Item?goodscode=2493520744")
             else:
                 self.noticed = False
             time.sleep(20)
